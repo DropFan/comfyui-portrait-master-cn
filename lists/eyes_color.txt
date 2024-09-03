@@ -2,6 +2,8 @@
 Albino
 琥珀色
 Amber
+黑色
+Black
 蓝色
 Blue
 棕色
