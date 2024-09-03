@@ -1,0 +1,8 @@
+男
+Man
+女
+Woman
+男孩
+Boy
+女孩
+Girl

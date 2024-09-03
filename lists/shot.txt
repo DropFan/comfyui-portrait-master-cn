@@ -1,8 +1,16 @@
+头像
 Head portrait
+头肩像
 Head and shoulders portrait
+半身像
 Half-length portrait
+全身像
 Full-length portrait
+脸
 Face
+肖像
 Portrait
+全身
 Full body
+特写
 Close-up

@@ -1,23 +1,46 @@
+圆形
 Circle
+菱形
 Diamond
+心形
 Heart
+尖下巴心形
 Heart with Pointed Chin
+圆下巴心形
 Heart with Rounded Chin
+V 形下巴心形
 Heart with V-Shape Chin
+倒三角形
 Inverted Triangle
+长形
 Long
+长方形
 Oblong
+椭圆形
 Oval
+梨形
 Pear
+矩形
 Rectangle
+圆形（常规）
 Round
+高颧骨圆形
 Round with Defined Cheekbones
+高颧骨圆形（另一种表述）
 Round with High Cheekbones
+柔和颧骨圆形
 Round with Soft Cheekbones
+正方形
 Square
+方形椭圆形
 Square Oval
+方形圆形
 Square Round
+圆下巴方形
 Square with Rounded Jaw
+尖下巴方形
 Square with Sharp Jaw
+柔和下巴方形
 Square with Soft Jaw
+三角形
 Triangle

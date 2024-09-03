@@ -1,10 +1,20 @@
+顶部
 Light from top
+底部
 Light from bottom
+右侧
 Light from right
+左侧
 Light from left
+正前方
 Light from front
+背面
 Light from rear
+右上
 Light from top-right
+左上
 Light from top-left
+右下
 Light from bottom-right
+左下
 Light from bottom-left

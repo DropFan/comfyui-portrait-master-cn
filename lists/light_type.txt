@@ -1,70 +1,140 @@
+抽象光图案
 Abstract Light Patterns
+环境光
 Ambient Light
+逆光剪影光
 Backlit Silhouette Light
+逆光
 Backlight Light
+蓝色时刻光
 Blue Hour Light
+光晕光
 Bloom Light
+宽光照明
 Broad Lighting Light
+灯泡光
 Bulb Light
+蝴蝶光照明
 Buterfly Lighting Light
+烛光
 Candlelight
+焦散光
 Caustics Light
+电影照明光
 Cinematic Lighting Light
+城市街灯光
 City Streetlights Light
+阴天漫射光
 Cloudy Day Diffused Light
+日冕光
 Corona Light
+曙暮光光线
 Crepuscular Rays Light
+斑驳阳光
 Dappled Sunlight Light
+昏暗光
 Dimly Lit Light
+补光
 Fill Light
+火光
 Firelight
+闪光灯摄影光
 Flash Photography Light
+荧光照明
 Fluorescent Lighting
+雾霭光
 Fog and Mist Light
+眩光
 Glare Light
+黄金时刻光
 Golden Hour Light
+光环光
 Halos Light
+强烈阳光
 Harsh Sunlight Light
+热霾光
 Heat Haze Light
+高色调照明光
 High-Key Lighting Light
+白炽光照明
 Incandescent Lighting
+灯笼光
 Lantern Light
+镜头光晕光
 Lens Flare Light
+闪电光
 Lightning Light
+低色调照明光
 Low-Key Lighting Light
+环形光照明
 Loop Lighting Light
+薄雾光
 Mist Light
+月光
 Moonlight Light
+自然光
 Natural Light
+霓虹灯光
 Neon Lights Light
+阴天光
 Overcast Sky Light
+彩虹光
 Rainbows Light
+反射光
 Reflections Light
+伦勃朗光照明
 Rembrandt Lighting Light
+轮廓光
 Rim Light
+轮廓照明光
 Rim Lighting Light
+散射光
 Scattering Light
+阴影光
 Shadows Light
+侧光
 Side Light
+剪影光
 Silhouette Light
+天光
 Skylight Light
+柔和环境光
 Soft Ambient Light
+柔光
 Soft Light
+柔光箱照明光
 Softbox Lighting Light
+闪光灯
 Speedlight Light
+分割光照明
 Split Lighting Light
+聚光灯
 Spot Light
+点光源光
 Spotlight Light
+舞台灯光
 Stage Lighting Light
+条形光
 Strip Light
+摄影棚灯光
 Studio Lighting Light
+阳光
 Sunlight Light
+日落余晖光
 Sunset Glow Light
+日出温暖光
 Sunrise Warmth Light
-Thuderstorms Light
+雷雨光
+Thunderstorms Light
+手电筒光
 Torchlight Light
+顶光
 Top Light
+钨丝灯光照明
 Tungsten Lighting Light
+暮光色调光
 Twilight Hues Light
+底光
 Underlighting Light
+体积光
 Volumetric Lighting Light
