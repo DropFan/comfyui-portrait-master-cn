@@ -4,103 +4,56 @@
 # https://stefnoflore.it
 # https://ai-wiz.art
 
+# modified by Tiger (https://github.com/DropFan)
+# 主要汉化了原版，将数据文件改为中英两行，未做大的改动
+
 import os
 import random
 
-script_dir = os.path.dirname(__file__)
+from .common import *
+from .logger import logger
 
-# read txt file
+logger.info("Load data list ")
 
-def pmReadTxt(file_path):
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-        values = [line.strip() for line in lines]
-        return values
+shotList, shotDict = load_data("shot.txt")
+genderList, genderDict = load_data("gender.txt")
+faceShapeList, faceShapeDict = load_data("face_shape.txt")
+facialExpressionsList, facialExpressionsDict = load_data("face_expression.txt")
+nationalityList, nationalityDict = load_data("nationality.txt")
+hairStyleList, hairStyleDict = load_data("hair_style.txt")
 
-# apply weight
-    
-def applyWeight(text, weight):
-    if weight == 1:
-        return text
-    else:
-        return f"({text}:{round(weight,2)})"
+lightTypeList, lightTypeDict = load_data("light_type.txt")
+lightDirectionList, lightDirectionDict = load_data("light_direction.txt")
 
-# setup vars
+eyeColorList, eyeColorDict = load_data("eyes_color.txt")
+eyeShapeList, eyeShapeDict = load_data("eyes_shape.txt")
 
-rand_opt = 'random 🎲'
+beardColorList, beardColorDict = load_data("beard_color.txt")
 
-shot_list = pmReadTxt(os.path.join(script_dir, "lists/shot_list.txt"))
-shot_list.sort()
+hairColorList, hairColorDict = load_data("hair_color.txt")
+hairLengthList, hairLengthDict = load_data("hair_length.txt")
 
-gender_list = pmReadTxt(os.path.join(script_dir, "lists/gender_list.txt"))
-gender_list.sort()
+bodyTypeList, bodyTypeDict = load_data("body_type.txt")
 
-face_shape_list = pmReadTxt(os.path.join(script_dir, "lists/face_shape_list.txt"))
-face_shape_list.sort()
+beardList, beardDict = load_data("beard.txt")
 
-facial_expressions_list = pmReadTxt(os.path.join(script_dir, "lists/face_expression_list.txt"))
-facial_expressions_list.sort()
+modelPoseList, modelPoseDict = load_data("model_pose.txt")
 
-nationality_list = pmReadTxt(os.path.join(script_dir, "lists/nationality_list.txt"))
-nationality_list.sort()
+style1List, style1Dict = load_data("style.txt")
+style2List, style2Dict = load_data("style.txt")
 
-hair_style_list = pmReadTxt(os.path.join(script_dir, "lists/hair_style_list.txt"))
-hair_style_list.sort()
+lipsShapeList, lipsShapeDict = load_data("lips_shape.txt")
+lipsColorList, lipsColorDict = load_data("lips_color.txt")
 
-light_type_list = pmReadTxt(os.path.join(script_dir, "lists/light_type_list.txt"))
-light_type_list.sort()
+makeupList, makeupDict = load_data("makeup.txt")
 
-light_direction_list = pmReadTxt(os.path.join(script_dir, "lists/light_direction_list.txt"))
-light_direction_list.sort()
+clothesList, clothesDict = load_data("clothes.txt")
 
-eyes_color_list = pmReadTxt(os.path.join(script_dir, "lists/eyes_color_list.txt"))
-eyes_color_list.sort()
+logger.info("Load data list done")
 
-eyes_shape_list = pmReadTxt(os.path.join(script_dir, "lists/eyes_shape_list.txt"))
-eyes_shape_list.sort()
-
-beard_color_list = pmReadTxt(os.path.join(script_dir, "lists/beard_color_list.txt"))
-beard_color_list.sort()
-
-hair_color_list = pmReadTxt(os.path.join(script_dir, "lists/hair_color_list.txt"))
-hair_color_list.sort()
-
-hair_length_list = pmReadTxt(os.path.join(script_dir, "lists/hair_length_list.txt"))
-hair_length_list.sort()
-
-body_type_list = pmReadTxt(os.path.join(script_dir, "lists/body_type_list.txt"))
-body_type_list.sort()
-
-beard_list = pmReadTxt(os.path.join(script_dir, "lists/beard_list.txt"))
-beard_list.sort()
-
-model_pose_list = pmReadTxt(os.path.join(script_dir, "lists/model_pose_list.txt"))
-model_pose_list.sort()
-
-style_1_list = pmReadTxt(os.path.join(script_dir, "lists/style_list.txt"))
-style_1_list.sort()
-
-style_2_list = pmReadTxt(os.path.join(script_dir, "lists/style_list.txt"))
-style_2_list.sort()
-
-lips_shape_list = pmReadTxt(os.path.join(script_dir, "lists/lips_shape_list.txt"))
-lips_shape_list.sort()
-
-lips_color_list = pmReadTxt(os.path.join(script_dir, "lists/lips_color_list.txt"))
-lips_color_list.sort()
-
-makeup_list = pmReadTxt(os.path.join(script_dir, "lists/makeup_list.txt"))
-makeup_list.sort()
-
-clothes_list = pmReadTxt(os.path.join(script_dir, "lists/clothes_list.txt"))
-clothes_list.sort()
-
-age_list = pmReadTxt(os.path.join(script_dir, "lists/age_list.txt"))
-age_list.sort()
-    
 # Portrait Master version (Legacy)
 
-class PortraitMaster:
+class PortraitMasterLegacy:
 
     def __init__(self):
         pass
@@ -113,252 +66,254 @@ class PortraitMaster:
                 "seed": ("INT", {"forceInput": False}),
             },
             "required": {
-                "shot": (['-'] + shot_list, {
-                    "default": shot_list[0],
+                "镜头类型": (['-'] + shotList, {
+                    "default": shotList[0],
                 }),
-                "shot_weight": ("FLOAT", {
+                "镜头权重": ("FLOAT", {
                     "default": 0,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "gender": (['-'] + gender_list, {
-                    "default": gender_list[0],
+                "性别": (['-'] + genderList, {
+                    "default": "女",
                 }),
-                "androgynous": ("FLOAT", {
+                "跨性别程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "age": (age_list, {
-                    "default": '30',
+                "年龄": ("INT", {
+                    "default": 22,
+                    "min":0,
+                    "max":100,
                 }),
-                "nationality_1": (['-'] + nationality_list, {
-                    "default": nationality_list[0],
+                "国籍_1": (['-'] + nationalityList, {
+                    "default": "中国人",
                 }),
-                "nationality_2": (['-'] + nationality_list, {
-                    "default": nationality_list[0],
+                "国籍_2": (['-'] + nationalityList, {
+                    "default": "-",
                 }),
-                "nationality_mix": ("FLOAT", {
+                "国籍混血": ("FLOAT", {
                     "default": 0.5,
                     "min": 0,
                     "max": 1,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "body_type": (['-'] + body_type_list, {
-                    "default": body_type_list[0],
+                "体型": (['-'] + bodyTypeList, {
+                    "default": "-",
                 }),
-                "body_type_weight": ("FLOAT", {
+                "体型权重": ("FLOAT", {
                     "default": 0,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "model_pose": (['-'] + model_pose_list, {
-                    "default": model_pose_list[0],
+                "模特姿势": (['-'] + modelPoseList, {
+                    "default": "-",
                 }),
-                "clothes": (['-'] + clothes_list, {
-                    "default": clothes_list[0],
+                "服装": (['-'] + clothesList, {
+                    "default": "-",
                 }),
-                "eyes_color": (['-'] + eyes_color_list, {
-                    "default": eyes_color_list[0],
+                "眼睛颜色": (['-'] + eyeColorList, {
+                    "default": "-",
                 }),
-                "eyes_shape": (['-'] + eyes_shape_list, {
-                    "default": eyes_shape_list[0],
+                "眼睛形状": (['-'] + eyeShapeList, {
+                    "default": '-',
                 }),
-                "lips_color": (['-'] + lips_color_list, {
-                    "default": lips_color_list[0],
+                "唇色": (['-'] + lipsColorList, {
+                    "default": '-',
                 }),
-                "lips_shape": (['-'] + lips_shape_list, {
-                    "default": lips_shape_list[0],
+                "唇形": (['-'] + lipsShapeList, {
+                    "default": '-',
                 }),
-                "facial_expression": (['-'] + facial_expressions_list, {
-                    "default": facial_expressions_list[0],
+                "表情": (['-'] + facialExpressionsList, {
+                    "default": '-',
                 }),
-                "facial_expression_weight": ("FLOAT", {
+                "表情权重": ("FLOAT", {
                     "default": 0,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "face_shape": (['-'] + face_shape_list, {
-                    "default": face_shape_list[0],
+                "脸型": (['-'] + faceShapeList, {
+                    "default": '-',
                 }),
-                "face_shape_weight": ("FLOAT", {
+                "脸型权重": ("FLOAT", {
                     "default": 0,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "facial_asymmetry": ("FLOAT", {
+                "面部不对称": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "hair_style": (['-'] + hair_style_list, {
-                    "default": hair_style_list[0],
+                "发型": (['-'] + hairStyleList, {
+                    "default": '-',
                 }),
-                "hair_color": (['-'] + hair_color_list, {
-                    "default": hair_color_list[0],
+                "发型颜色": (['-'] + hairColorList, {
+                    "default": '-',
                 }),
-                "hair_length": (['-'] + hair_length_list, {
-                    "default": hair_length_list[0],
+                "头发长度": (['-'] + hairLengthList, {
+                    "default": '-',
                 }),
-                "disheveled": ("FLOAT", {
+                "凌乱程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "makeup": (['-'] + makeup_list, {
-                    "default": makeup_list[0],
+                "妆容": (['-'] + makeupList, {
+                    "default": '-',
                 }),
-                "beard": (['-'] + beard_list, {
-                    "default": beard_list[0],
+                "胡子": (['-'] + beardList, {
+                    "default": '-',
                 }),
-                "natural_skin": ("FLOAT", {
+                "自然皮肤": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "bare_face": ("FLOAT", {
+                "素颜": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "washed_face": ("FLOAT", {
+                "洗脸程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "dried_face": ("FLOAT", {
+                "干脸程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_details": ("FLOAT", {
+                "皮肤细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_pores": ("FLOAT", {
+                "皮肤毛孔": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "dimples": ("FLOAT", {
+                "酒窝": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "wrinkles": ("FLOAT", {
+                "皱纹": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "freckles": ("FLOAT", {
+                "雀斑": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "moles": ("FLOAT", {
+                "痣": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_imperfections": ("FLOAT", {
+                "皮肤瑕疵": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_acne": ("FLOAT", {
+                "皮肤痤疮": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "tanned_skin": ("FLOAT", {
+                "晒黑_小麦色皮肤": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "eyes_details": ("FLOAT", {
+                "眼睛细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "iris_details": ("FLOAT", {
+                "虹膜细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "circular_iris": ("FLOAT", {
+                "环形虹膜": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "circular_pupil": ("FLOAT", {
+                "圆形瞳孔": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "light_type": (['-'] + light_type_list, {
-                    "default": light_type_list[0],
+                "光的类型": (['-'] + lightTypeList, {
+                    "default": '-',
                 }),
-                "light_direction": (['-'] + light_direction_list, {
-                    "default": light_direction_list[0],
+                "光的方向": (['-'] + lightDirectionList, {
+                    "default": '-',
                 }),
-                "light_weight": ("FLOAT", {
+                "光的权重": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "photorealism_improvement": (["enable", "disable"],),
+                "照片真实化增强": (["enable", "disable"],),
                 "prompt_start": ("STRING", {
                     "multiline": True,
                     "default": "raw photo, (realistic:1.5)"
@@ -375,8 +330,8 @@ class PortraitMaster:
                     "multiline": True,
                     "default": ""
                 }),
-                "style_1": (['-'] + style_1_list, {
-                    "default": style_1_list[0],
+                "style_1": (['-'] + style1List, {
+                    "default": '-',
                 }),
                 "style_1_weight": ("FLOAT", {
                     "default": 1.5,
@@ -385,8 +340,8 @@ class PortraitMaster:
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "style_2": (['-'] + style_2_list, {
-                    "default": style_2_list[0],
+                "style_2": (['-'] + style2List, {
+                    "default": '-',
                 }),
                 "style_2_weight": ("FLOAT", {
                     "default": 1.5,
@@ -395,29 +350,29 @@ class PortraitMaster:
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "random_shot": ("BOOLEAN", {"default": False}),
-                "random_gender": ("BOOLEAN", {"default": False}),
-                "random_age": ("BOOLEAN", {"default": False}),
-                "random_androgynous": ("BOOLEAN", {"default": False}),
-                "random_nationality": ("BOOLEAN", {"default": False}),
-                "random_body_type": ("BOOLEAN", {"default": False}),
-                "random_model_pose": ("BOOLEAN", {"default": False}),
-                "random_clothes": ("BOOLEAN", {"default": False}),
-                "random_eyes_color": ("BOOLEAN", {"default": False}),
-                "random_eyes_shape": ("BOOLEAN", {"default": False}),
-                "random_lips_color": ("BOOLEAN", {"default": False}),
-                "random_lips_shape": ("BOOLEAN", {"default": False}),
-                "random_facial_expression": ("BOOLEAN", {"default": False}),
-                "random_face_shape": ("BOOLEAN", {"default": False}),
-                "random_hairstyle": ("BOOLEAN", {"default": False}),
-                "random_hair_color": ("BOOLEAN", {"default": False}),
-                "random_hair_length": ("BOOLEAN", {"default": False}),
-                "random_disheveled": ("BOOLEAN", {"default": False}),
-                "random_makeup": ("BOOLEAN", {"default": False}),
-                "random_freckles": ("BOOLEAN", {"default": False}),
-                "random_moles": ("BOOLEAN", {"default": False}),
-                "random_skin_imperfections": ("BOOLEAN", {"default": False}),
-                "random_beard": ("BOOLEAN", {"default": False}),
+                "随机镜头": ("BOOLEAN", {"default": False}),
+                "随机性别": ("BOOLEAN", {"default": False}),
+                "随机年龄": ("BOOLEAN", {"default": False}),
+                "随机跨性别": ("BOOLEAN", {"default": False}),
+                "随机种族": ("BOOLEAN", {"default": False}),
+                "随机体型": ("BOOLEAN", {"default": False}),
+                "随机模特姿势": ("BOOLEAN", {"default": False}),
+                "随机服装": ("BOOLEAN", {"default": False}),
+                "随机眼睛颜色": ("BOOLEAN", {"default": False}),
+                "随机眼睛形状": ("BOOLEAN", {"default": False}),
+                "随机唇色": ("BOOLEAN", {"default": False}),
+                "随机唇形": ("BOOLEAN", {"default": False}),
+                "随机面部表情": ("BOOLEAN", {"default": False}),
+                "随机脸型": ("BOOLEAN", {"default": False}),
+                "随机发型": ("BOOLEAN", {"default": False}),
+                "随机发色": ("BOOLEAN", {"default": False}),
+                "随机头发长度": ("BOOLEAN", {"default": False}),
+                "随机凌乱": ("BOOLEAN", {"default": False}),
+                "随机妆容": ("BOOLEAN", {"default": False}),
+                "随机雀斑": ("BOOLEAN", {"default": False}),
+                "随机痣": ("BOOLEAN", {"default": False}),
+                "随机皮肤瑕疵": ("BOOLEAN", {"default": False}),
+                "随机胡子": ("BOOLEAN", {"default": False}),
                 "random_style_1": ("BOOLEAN", {"default": False}),
                 "random_style_2": ("BOOLEAN", {"default": False}),
             }
@@ -428,230 +383,231 @@ class PortraitMaster:
 
     FUNCTION = "pm"
 
-    CATEGORY = "AI WizArt/Portrait Master/Old versions"
+    CATEGORY = CATEGORY
 
-    def pm(self, shot="-", shot_weight=1, gender="-", body_type="-", body_type_weight=0, eyes_color="-", facial_expression="-", facial_expression_weight=0, face_shape="-", face_shape_weight=0, nationality_1="-", nationality_2="-", nationality_mix=0.5, age=30, hair_style="-", hair_color="-", disheveled=0, dimples=0, freckles=0, skin_pores=0, skin_details=0, moles=0, skin_imperfections=0, wrinkles=0, tanned_skin=0, eyes_details=1, iris_details=1, circular_iris=1, circular_pupil=1, facial_asymmetry=0, prompt_additional="", prompt_start="", prompt_end="", light_type="-", light_direction="-", light_weight=0, negative_prompt="", photorealism_improvement="disable", beard="-", model_pose="-", skin_acne=0, style_1="-", style_1_weight=0, style_2="-", style_2_weight=0, androgynous=0, natural_skin=0, bare_face=0, washed_face=0, dried_face=0, random_gender=False, random_age=False, random_nationality=False, random_hairstyle=False, random_eyes_color=False, random_hair_color=False, random_disheveled=False, random_freckles=False, random_moles=False, random_beard=False, random_shot=False, random_androgynous=False, random_facial_expression=False, random_skin_imperfections=False, random_style_1=False, random_style_2=False, random_body_type=False, random_model_pose=False, hair_length="-", random_hair_length=False, eyes_shape="-", random_eyes_shape=False, lisp_shape="-", lips_color="-", random_lips_color=False, lips_shape="-", random_lips_shape=False, makeup="-", random_makeup=False, clothes="-", random_clothes=False, random_face_shape=False, seed=0):
+    def pm(self, 镜头类型="-", 镜头权重=1, 性别="-", 体型="-", 体型权重=0, 眼睛颜色="-", 表情="-", 表情权重=0, 脸型="-", 脸型权重=0, 国籍_1="-", 国籍_2="-", 国籍混血=0.5, 年龄=30, 发型="-", 发型颜色="-", 凌乱程度=0, 酒窝=0, 雀斑=0, 皮肤毛孔=0, 皮肤细节=0, 痣=0, 皮肤瑕疵=0, 皱纹=0, 晒黑_小麦色皮肤=0, 眼睛细节=1, 虹膜细节=1, 环形虹膜=1, 圆形瞳孔=1, 面部不对称=0, prompt_additional="", prompt_start="", prompt_end="", 光的类型="-", 光的方向="-", 光的权重=0, negative_prompt="", 照片真实化增强="disable", 胡子="-", 模特姿势="-", 皮肤痤疮=0, style_1="-", style_1_weight=0, style_2="-", style_2_weight=0, 跨性别程度=0, 自然皮肤=0, 素颜=0, 洗脸程度=0, 干脸程度=0, 随机性别=False, 随机年龄=False, 随机种族=False, 随机体型=False,随机发型=False, 随机眼睛颜色=False, 随机发色=False, 随机凌乱=False, 随机雀斑=False, 随机痣=False, 随机胡子=False, 随机镜头=False, 随机跨性别=False, 随机面部表情=False, 随机皮肤瑕疵=False, random_style_1=False, random_style_2=False, random_body_type=False, 随机模特姿势=False, 头发长度="-", 随机头发长度=False, 眼睛形状="-", 随机眼睛形状=False, 唇色="-", 随机唇色=False, 唇形="-", 随机唇形=False, 妆容="-", 随机妆容=False, 服装="-", 随机服装=False, 随机脸型=False, seed=0):
 
         prompt = []
 
         # RANDOMIZER SWITCHES
 
-        if random_shot:
-            shot = random.choice(shot_list)
-            shot_weight = random.uniform(0.5,1.25)
+        if 随机镜头:
+            镜头类型 = random.choice(shotList)
+            镜头权重 = random.uniform(0.5,1.25)
 
-        if random_gender:
-            gender = random.choice(gender_list)
+        if 随机性别:
+            性别 = random.choice(genderList)
 
-        if random_age:
-            age = random.randint(18,75)
+        if 随机年龄:
+            年龄 = random.randint(18,75)
 
-        if random_nationality:
-            nationality_1 = random.choice(nationality_list)
-            nationality_2 = "-"
+        if 随机种族:
+            国籍_1 = random.choice(nationalityList)
+            国籍_2 = "-"
 
-        if random_hairstyle:
-            hair_style = random.choice(hair_style_list)
+        if 随机发型:
+            发型 = random.choice(hairStyleList)
+            发型颜色 = random.choice(hairColorList)
 
-        if random_model_pose:
-            model_pose = random.choice(model_pose_list)
+        if 随机模特姿势:
+            模特姿势 = random.choice(modelPoseList)
 
-        if random_eyes_color:
-            eyes_color = random.choice(eyes_color_list)
+        if 随机眼睛颜色:
+            眼睛颜色 = random.choice(eyeColorList)
 
-        if random_eyes_shape:
-            eyes_shape = random.choice(eyes_shape_list)
+        if 随机眼睛形状:
+            眼睛形状 = random.choice(eyeShapeList)
 
-        if random_lips_color:
-            lips_color = random.choice(lips_color_list)
+        if 随机唇色:
+            唇色 = random.choice(lipsColorList)
 
-        if random_lips_shape:
-            lips_shape = random.choice(lips_shape_list)
+        if 随机唇形:
+            唇形 = random.choice(lipsShapeList)
 
-        if random_hair_color:
-            hair_color = random.choice(hair_color_list)
+        if 随机发色:
+            发型颜色 = random.choice(hairColorList)
 
-        if random_hair_length:
-            hair_length = random.choice(hair_length_list)
+        if 随机头发长度:
+            头发长度 = random.choice(hairLengthList)
 
-        if random_facial_expression:
-            facial_expression = random.choice(facial_expressions_list)
-            facial_expression_weight = random.uniform(0.5,1.25)
+        if 随机面部表情:
+            表情 = random.choice(facialExpressionsList)
+            表情权重 = random.uniform(0.5,1.25)
 
-        if random_face_shape:
-            face_shape = random.choice(face_shape_list)
-            face_shape_weight = random.uniform(0.5,1.25)
+        if 随机脸型:
+            脸型 = random.choice(faceShapeList)
+            脸型权重 = random.uniform(0.5,1.25)
 
-        if random_body_type:
-            body_type = random.choice(body_type_list)
-            body_type_weight = random.uniform(0.25,1.25)
+        if 随机体型:
+            体型 = random.choice(bodyTypeList)
+            体型权重 = random.uniform(0.25,1.25)
 
-        if random_beard:
-            beard = random.choice(beard_list)
+        if 随机胡子:
+            胡子 = random.choice(beardList)
 
-        if random_androgynous:
-            androgynous = random.uniform(0,1)
+        if 随机跨性别:
+            跨性别程度 = random.uniform(0,1)
 
-        if random_disheveled:
-            disheveled = random.uniform(0,1.35)
+        if 随机凌乱:
+            凌乱程度 = random.uniform(0,1.35)
 
-        if random_clothes:
-            clothes = random.choice(clothes_list)
+        if 随机服装:
+            服装 = random.choice(clothesList)
 
-        if random_makeup:
-            makeup = random.choice(makeup_list)
+        if 随机妆容:
+            妆容 = random.choice(makeupList)
 
-        if random_freckles:
-            freckles = random.uniform(0,1.35)
+        if 随机雀斑:
+            雀斑 = random.uniform(0,1.35)
 
-        if random_moles:
-            moles = random.uniform(0,1.35)
+        if 随机痣:
+            痣 = random.uniform(0,1.35)
 
         if random_style_1:
-            style_1 = random.choice(style_1_list)
+            style_1 = random.choice(style1List)
             style_1_weight = random.uniform(0.5,1.5)
 
         if random_style_2:
-            style_2 = random.choice(style_2_list)
+            style_2 = random.choice(style2List)
             style_2_weight = random.uniform(0.5,1.5)
 
-        if random_skin_imperfections:
-            skin_imperfections = random.uniform(0.15,1)
+        if 随机皮肤瑕疵:
+            皮肤瑕疵 = random.uniform(0.15,1)
 
         # OPTIONS
 
-        if gender == "-":
-            gender = ""
+        if 性别 == "-":
+            性别 = ""
         else:
-            gender = gender + " "
+            性别 = genderDict[性别] + " "
 
-        if nationality_1 != '-' and nationality_2 != '-':
-            nationality = f"[{nationality_1}:{nationality_2}:{round(nationality_mix, 2)}] "
-        elif nationality_1 != '-':
-            nationality = nationality_1 + " "
-        elif nationality_2 != '-':
-            nationality = nationality_2 + " "
+        if 国籍_1 != '-' and 国籍_2 != '-':
+            nationality = f"[{nationalityDict[国籍_1]}:{nationalityDict[国籍_2]}:{round(国籍混血, 2)}] "
+        elif 国籍_1 != '-':
+            nationality = nationalityDict[国籍_1] + " "
+        elif 国籍_2 != '-':
+            nationality = nationalityDict[国籍_2] + " "
         else:
             nationality = ""
 
         if prompt_start != "":
             prompt.append(f"{prompt_start}")
 
-        if shot != "-" and shot_weight > 0:
-            prompt.append(applyWeight(shot,shot_weight))
+        if 镜头类型 != "-" and 镜头权重 > 0:
+            prompt.append(applyWeight(shotDict[镜头类型],镜头权重))
 
-        prompt.append(f"({nationality}{gender}{age}-years-old:1.5)")
+        prompt.append(f"({nationality}{性别}{年龄}-years-old:1.5)")
 
-        if androgynous > 0:
-            prompt.append(applyWeight('androgynous',androgynous))
+        if 跨性别程度 > 0:
+            prompt.append(applyWeight('androgynous',跨性别程度))
 
-        if body_type != "-" and body_type_weight > 0:
-            prompt.append(applyWeight(f"{body_type}, {body_type} body",body_type_weight))
+        if 体型 != "-" and 体型权重 > 0:
+            prompt.append(applyWeight(f"{bodyTypeDict[体型]}, {bodyTypeDict[体型]} body",体型权重))
 
-        if model_pose != "-":
-            prompt.append(f"({model_pose}:1.25)")
+        if 模特姿势 != "-":
+            prompt.append(f"({modelPoseDict[模特姿势]}:1.25)")
 
-        if clothes != "-":
-            prompt.append(f"({clothes}:1.05)")
+        if 服装 != "-":
+            prompt.append(f"({clothesDict[服装]}:1.05)")
 
-        if eyes_color != "-":
-            prompt.append(f"({eyes_color} eyes:1.05)")
+        if 眼睛颜色 != "-":
+            prompt.append(f"({eyeColorDict[眼睛颜色]} eyes:1.05)")
 
-        if eyes_shape != "-":
-            prompt.append(f"({eyes_shape}:1.05)")
+        if 眼睛形状 != "-":
+            prompt.append(f"({eyeShapeDict[眼睛形状]}:1.05)")
 
-        if lips_color != "-":
-            prompt.append(f"({lips_color}:1.05)")
+        if 唇色 != "-":
+            prompt.append(f"({lipsColorDict[唇色]}:1.05)")
 
-        if lips_shape != "-":
-            prompt.append(f"({lips_shape}:1.05)")
+        if 唇形 != "-":
+            prompt.append(f"({lipsShapeDict[唇形]}:1.05)")
 
-        if makeup != "-":
-            prompt.append(f"({makeup}:1.05)")
+        if 妆容 != "-":
+            prompt.append(f"({makeupDict[妆容]}:1.05)")
 
-        if facial_expression != "-" and facial_expression_weight > 0:
-            prompt.append(applyWeight(f"{facial_expression}, {facial_expression} expression",facial_expression_weight))
+        if 表情 != "-" and 表情权重 > 0:
+            prompt.append(applyWeight(f"{facialExpressionsDict[表情]}, {facialExpressionsDict[表情]} expression",表情权重))
 
-        if face_shape != "-" and face_shape_weight > 0:
-            prompt.append(applyWeight(f"{face_shape} shape face",face_shape_weight))
+        if 脸型 != "-" and 脸型权重 > 0:
+            prompt.append(applyWeight(f"{faceShapeDict[脸型]} shape face",脸型权重))
 
-        if hair_style != "-":
-            prompt.append(f"({hair_style} cut hairstyle:1.05)")
+        if 发型 != "-":
+            prompt.append(f"({hairStyleDict[发型]} cut hairstyle:1.05)")
 
-        if hair_color != "-":
-            prompt.append(f"({hair_color} hair:1.05)")
+        if 发型颜色 != "-":
+            prompt.append(f"({hairColorDict[发型颜色]} hair:1.05)")
 
-        if hair_length != "-":
-            prompt.append(f"({hair_length}:1.05)")
+        if 头发长度 != "-":
+            prompt.append(f"({hairLengthDict[头发长度]}:1.05)")
 
-        if beard != "-":
-            prompt.append(f"({beard}:1.15)")
+        if 胡子 != "-":
+            prompt.append(f"({beardColorDict[胡子]}:1.15)")
 
-        if disheveled != "-" and disheveled > 0:
-            prompt.append(applyWeight('disheveled',disheveled))
+        if 凌乱程度 != "-" and 凌乱程度 > 0:
+            prompt.append(applyWeight('disheveled',凌乱程度))
 
         if prompt_additional != "":
             prompt.append(f"{prompt_additional}")
 
-        if natural_skin > 0:
-            prompt.append(applyWeight('natural skin',natural_skin))
+        if 自然皮肤 > 0:
+            prompt.append(applyWeight('natural skin',自然皮肤))
 
-        if bare_face > 0:
-            prompt.append(applyWeight('bare face',bare_face))
+        if 素颜 > 0:
+            prompt.append(applyWeight('bare face',素颜))
 
-        if washed_face > 0:
-            prompt.append(applyWeight('washed-face',washed_face))
+        if 洗脸程度 > 0:
+            prompt.append(applyWeight('washed-face',洗脸程度))
 
-        if dried_face > 0:
-            prompt.append(applyWeight('dried-face',dried_face))
+        if 干脸程度 > 0:
+            prompt.append(applyWeight('dried-face',干脸程度))
 
-        if skin_details > 0:
-            prompt.append(applyWeight('skin details, skin texture',skin_details))
+        if 皮肤细节 > 0:
+            prompt.append(applyWeight('skin details, skin texture',皮肤细节))
 
-        if skin_pores > 0:
-            prompt.append(applyWeight('skin pores',skin_pores))
+        if 皮肤毛孔 > 0:
+            prompt.append(applyWeight('skin pores',皮肤毛孔))
 
-        if skin_imperfections > 0:
-            prompt.append(applyWeight('skin imperfections',skin_imperfections))
+        if 皮肤瑕疵 > 0:
+            prompt.append(applyWeight('skin imperfections',皮肤瑕疵))
 
-        if skin_acne > 0:
-            prompt.append(applyWeight('acne, skin with acne',skin_acne))
+        if 皮肤痤疮 > 0:
+            prompt.append(applyWeight('acne, skin with acne',皮肤痤疮))
 
-        if wrinkles > 0:
-            prompt.append(applyWeight('wrinkles',wrinkles))
+        if 皱纹 > 0:
+            prompt.append(applyWeight('wrinkles',皱纹))
 
-        if tanned_skin > 0:
-            prompt.append(applyWeight('tanned skin',tanned_skin))
+        if 晒黑_小麦色皮肤 > 0:
+            prompt.append(applyWeight('tanned skin',晒黑_小麦色皮肤))
 
-        if dimples > 0:
-            prompt.append(applyWeight('dimples',dimples))
+        if 酒窝 > 0:
+            prompt.append(applyWeight('dimples',酒窝))
 
-        if freckles > 0:
-            prompt.append(applyWeight('freckles',freckles))
+        if 雀斑 > 0:
+            prompt.append(applyWeight('freckles',雀斑))
 
-        if moles > 0:
-            prompt.append(applyWeight('moles',moles))
+        if 痣 > 0:
+            prompt.append(applyWeight('moles',痣))
 
-        if eyes_details > 0:
-            prompt.append(applyWeight('eyes details',eyes_details))
+        if 眼睛细节 > 0:
+            prompt.append(applyWeight('eyes details',眼睛细节))
 
-        if iris_details > 0:
-            prompt.append(applyWeight('iris details',iris_details))
+        if 虹膜细节 > 0:
+            prompt.append(applyWeight('iris details',虹膜细节))
 
-        if circular_iris > 0:
-            prompt.append(applyWeight('circular details',circular_iris))
+        if 环形虹膜 > 0:
+            prompt.append(applyWeight('circular details',环形虹膜))
 
-        if circular_pupil > 0:
-            prompt.append(applyWeight('circular pupil',circular_pupil))
+        if 圆形瞳孔 > 0:
+            prompt.append(applyWeight('circular pupil',圆形瞳孔))
 
-        if facial_asymmetry > 0:
-            prompt.append(applyWeight('facial asymmetry, face asymmetry',facial_asymmetry))
+        if 面部不对称 > 0:
+            prompt.append(applyWeight('facial asymmetry, face asymmetry',面部不对称))
 
-        if light_type != '-' and light_weight > 0:
-            if light_direction != '-':
-                prompt.append(applyWeight(f"{light_type} {light_direction}",light_weight))
+        if 光的类型 != '-' and 光的权重 > 0:
+            if 光的方向 != '-':
+                prompt.append(applyWeight(f"{lightTypeDict[光的类型]} {lightDirectionDict[光的方向]}",光的权重))
             else:
-                prompt.append(applyWeight(f"{light_type}",light_weight))
+                prompt.append(applyWeight(f"{lightTypeDict[光的类型]}",光的权重))
 
         if style_1 != '-' and style_1_weight > 0:
             prompt.append(applyWeight(style_1,style_1_weight))
@@ -665,17 +621,18 @@ class PortraitMaster:
         prompt = ", ".join(prompt)
         prompt = prompt.lower()
 
-        if photorealism_improvement == "enable":
-            prompt = prompt + ", (professional photo, balanced photo, balanced exposure:1.2)"
+        if 照片真实化增强 == "enable":
+            # prompt = prompt + ", (professional photo, balanced photo, balanced exposure:1.2)"
+            prompt = prompt + ", (detailed, professional photo, perfect exposition:1.25), (film grain:1.5)"
 
-        if photorealism_improvement == "enable":
+        if 照片真实化增强 == "enable":
             negative_prompt = negative_prompt + ", (shinny skin, shiny skin, reflections on the skin, skin reflections:1.35)"
 
         print("=============================================================")
-        print("Portrait Master positive prompt:")
+        logger.info("Portrait Master positive prompt:")
         print(prompt)
         print("")
-        print("Portrait Master negative prompt:")
+        logger.info("Portrait Master negative prompt:")
         print(negative_prompt)
         print("=============================================================")
 
