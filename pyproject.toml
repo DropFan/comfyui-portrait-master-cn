@@ -2,7 +2,7 @@
 name = "comfyui-portrait-master-cn"
 description = "ComfyUI 肖像大师中文版，主要汉化了 legacy 这个 node, 添加了一个 ImageSaver 用于保存 prompt 等元信息到 exif. 这是一个用于生成 prompt 文本的 node, 无其他依赖。"
 version = "3.2.1"
-license = "LICENSE"
+license = { file = "LICENSE" }
 
 [project.urls]
 Repository = "https://github.com/DropFan/comfyui-portrait-master-cn"
