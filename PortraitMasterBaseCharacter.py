@@ -200,9 +200,9 @@ class PortraitMasterBaseCharacter:
 
             if 镜头权重 > 0:
                 if 镜头 == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['shot']),镜头权重))
-                elif 镜头 != '-':
-                    prompt.append(applyWeight(镜头,镜头权重))
+                    镜头 = random.choice(lists['shot'])
+                if 镜头 != '-':
+                    prompt.append(applyWeight(dicts['shot'][镜头],镜头权重))
 
             if 性别 == rand_opt:
                 gender_opt = random.choice(lists['gender']) + ' '
@@ -253,71 +253,71 @@ class PortraitMasterBaseCharacter:
 
             if 体型权重 > 0:
                 if 体型 == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['body_type']),体型权重))
-                elif 体型 != '-':
+                    体型 = random.choice(lists['body_type'])
+                if 体型 != '-':
                     prompt.append(applyWeight(dicts['body_type'][体型],体型权重))
 
             if 眼睛颜色 == rand_opt:
-                prompt.append('(' + random.choice(lists['eyes_color']) + ' eyes:1.05)')
-            elif 眼睛颜色 != '-':
+                眼睛颜色 = random.choice(lists['eyes_color'])
+            if 眼睛颜色 != '-':
                 prompt.append('(' + dicts['eyes_color'][眼睛颜色] + ' eyes:1.05)')
 
             if 眼睛形状 == rand_opt:
-                prompt.append('(' + random.choice(lists['eyes_shape']) + ':1.05)')
-            elif 眼睛形状 != '-':
+                眼睛形状 = random.choice(lists['eyes_shape'])
+            if 眼睛形状 != '-':
                 prompt.append('(' + dicts['eyes_shape'][眼睛形状] + ':1.05)')
 
             if 唇色 == rand_opt:
-                prompt.append('(' + random.choice(lists['lips_color']) + ':1.05)')
-            elif 唇色 != '-':
+                唇色 = random.choice(lists['lips_color'])
+            if 唇色 != '-':
                 prompt.append('(' + dicts['lips_color'][唇色] + ':1.05)')
 
             if 唇形 == rand_opt:
-                prompt.append('(' + random.choice(lists['lips_shape']) + ':1.05)')
-            elif 唇形 != '-':
+                唇形 = random.choice(lists['lips_shape'])
+            if 唇形 != '-':
                 prompt.append('(' + dicts['lips_shape'][唇形] + ':1.05)')
 
             if 面部表情权重 > 0:
                 if 面部表情 == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['face_expression']),面部表情权重))
-                elif 面部表情 != '-':
+                    面部表情 = random.choice(lists['face_expression'])
+                if 面部表情 != '-':
                     prompt.append(applyWeight(dicts['face_expression'][面部表情],面部表情权重))
 
             if 脸型权重 > 0:
                 if 脸型 == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['face_shape']) + ' face-shape',脸型权重))
-                elif 脸型 != '-':
+                    脸型 = random.choice(lists['face_shape'])
+                if 脸型 != '-':
                     prompt.append(applyWeight(dicts['face_shape'][脸型] + ' face-shape',脸型权重))
 
             if 面部不对称 > 0:
                 prompt.append(applyWeight('facial asymmetry, face asymmetry',面部不对称))
 
             if 发型 == rand_opt:
-                prompt.append('(' + random.choice(lists['hair_style']) + ' hair style:1.05)')
-            elif 发型 != '-':
+                发型 = random.choice(lists['hair_style'])
+            if 发型 != '-':
                 prompt.append('(' + dicts['hair_style'][发型] + ' hair style:1.05)')
 
             if 发色 == rand_opt:
-                prompt.append('(' + random.choice(lists['hair_color']) + ' hair color:1.05)')
-            elif 发色 != '-':
+                发色 = random.choice(lists['hair_color'])
+            if 发色 != '-':
                 prompt.append('(' + dicts['hair_color'][发色] + ' hair color:1.05)')
 
             if 头发长度 == rand_opt:
-                prompt.append('(' + random.choice(lists['hair_length']) + ' hair length:1.05)')
-            elif 头发长度 != '-':
+                头发长度 = random.choice(lists['hair_length'])
+            if 头发长度 != '-':
                 prompt.append('(' + dicts['hair_length'][头发长度] + ' hair length:1.05)')
 
             if 凌乱程度 > 0:
                 prompt.append(applyWeight('disheveled',凌乱程度))
 
             if 胡子 == rand_opt:
-                prompt.append('(' + random.choice(lists['beard']) + ':1.05)"')
-            elif 胡子 != '-':
+                胡子 = random.choice(lists['beard'])
+            if 胡子 != '-':
                 prompt.append('(' + dicts['beard'][胡子] + ':1.05)"')
 
             if 胡子颜色 == rand_opt:
-                prompt.append('(' + random.choice(lists['beard_color']) + ' beard color:1.05)"')
-            elif 胡子颜色 != '-':
+                胡子颜色 = random.choice(lists['beard_color'])
+            if 胡子颜色 != '-':
                 prompt.append('(' + dicts['beard_color'][胡子颜色] + ' beard color:1.05)"')
 
         if len(prompt) > 0:

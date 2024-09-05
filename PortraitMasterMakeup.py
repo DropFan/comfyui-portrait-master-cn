@@ -63,14 +63,14 @@ class PortraitMasterMakeup:
 
         if 启用:
             if 化妆风格 == rand_opt:
-                prompt.append('(' + random.choice(lists['makeup']) + ':1.05)')
-            elif 化妆风格 != '-':
-                prompt.append(f"({化妆风格}:1.05)")
+                化妆风格 = random.choice(lists['makeup'])
+            if 化妆风格 != '-':
+                prompt.append(f"({dicts['makeup'][化妆风格]}:1.05)")
 
             if 化妆颜色 == rand_opt:
-                prompt.append('(' + random.choice(lists['makeup_color']) + ' make-up color:1.05)')
-            elif 化妆颜色 != '-':
-                prompt.append(f"({化妆颜色} make-up color:1.05)")
+                化妆颜色 = random.choice(lists['makeup_color'])
+            if 化妆颜色 != '-':
+                prompt.append(f"({dicts['makeup_color'][化妆颜色]} make-up color:1.05)")
 
             if 眼影: prompt.append("(eyeshadow make-up:1.05)")
             if 眼线: prompt.append("(eyeliner make-up:1.05)")
