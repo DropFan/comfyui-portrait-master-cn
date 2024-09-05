@@ -305,7 +305,7 @@ class PortraitMasterBaseCharacter:
             if 头发长度 == rand_opt:
                 prompt.append('(' + random.choice(lists['hair_length']) + ' hair length:1.05)')
             elif 头发长度 != '-':
-                prompt.append('(' + dicts['hair_length']['头发长度'] + ' hair length:1.05)')
+                prompt.append('(' + dicts['hair_length'][头发长度] + ' hair length:1.05)')
 
             if 凌乱程度 > 0:
                 prompt.append(applyWeight('disheveled',凌乱程度))
