@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-portrait-master-cn"
 description = "ComfyUI 肖像大师中文版，这是一个用于生成 prompt 文本的 node, 无其他依赖。在原版基础上完成汉化并添加了一个 ImageSaver 用于保存 prompt 等元信息到 exif 的 node"
-version = "3.2.1.1"
+version = "3.2.3"
 license = { file = "LICENSE" }
 
 [project.urls]
