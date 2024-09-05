@@ -96,7 +96,7 @@ class PortraitMasterSkinDetails:
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "皮肤痤疮": ("FLOAT", {
+                "皮肤痤疮_痘痘": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
