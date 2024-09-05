@@ -19,126 +19,126 @@ class PortraitMasterSkinDetails:
                 "seed": ("INT", {"forceInput": True}),
             },
             "required": {
-                "natural_skin": ("FLOAT", {
+                "自然皮肤": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "bare_face": ("FLOAT", {
+                "素颜": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "washed_face": ("FLOAT", {
+                "洗脸程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "dried_face": ("FLOAT", {
+                "干燥脸": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_details": ("FLOAT", {
+                "皮肤细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_pores": ("FLOAT", {
+                "皮肤毛孔": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "dimples": ("FLOAT", {
+                "酒窝": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "wrinkles": ("FLOAT", {
+                "皱纹": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "freckles": ("FLOAT", {
+                "雀斑": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "moles": ("FLOAT", {
+                "痣": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_imperfections": ("FLOAT", {
+                "皮肤瑕疵": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "skin_acne": ("FLOAT", {
+                "皮肤痤疮": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "tanned_skin": ("FLOAT", {
+                "晒黑_小麦色皮肤": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "eyes_details": ("FLOAT", {
+                "眼睛细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "iris_details": ("FLOAT", {
+                "虹膜细节": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "circular_iris": ("FLOAT", {
+                "环形虹膜": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "circular_pupil": ("FLOAT", {
+                "圆形瞳孔": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "active": ("BOOLEAN", {"default": True}),
+                "启用": ("BOOLEAN", {"default": True}),
             }
         }
 
@@ -153,24 +153,24 @@ class PortraitMasterSkinDetails:
             self,
             text_in='',
             seed=0,
-            natural_skin=0,
-            bare_face=0,
-            washed_face=0,
-            dried_face=0,
-            skin_details=0,
-            skin_pores=0,
-            dimples=0,
-            wrinkles=0,
-            freckles=0,
-            moles=0,
-            skin_imperfections=0,
-            skin_acne=0,
-            tanned_skin=0,
-            eyes_details=0,
-            iris_details=0,
-            circular_iris=0,
-            circular_pupil=0,
-            active=True
+            自然皮肤=0,
+            素颜=0,
+            洗脸程度=0,
+            干燥脸=0,
+            皮肤细节=0,
+            皮肤毛孔=0,
+            酒窝=0,
+            皱纹=0,
+            雀斑=0,
+            痣=0,
+            皮肤瑕疵=0,
+            皮肤痤疮_痘痘=0,
+            晒黑_小麦色皮肤=0,
+            眼睛细节=0,
+            虹膜细节=0,
+            环形虹膜=0,
+            圆形瞳孔=0,
+            启用=True
     ):
 
         prompt = []
@@ -178,58 +178,58 @@ class PortraitMasterSkinDetails:
         if text_in != '':
             prompt.append(text_in)
 
-        if active:
+        if 启用:
 
-            if natural_skin > 0:
-                prompt.append(applyWeight('natural skin',natural_skin))
+            if 自然皮肤 > 0:
+                prompt.append(applyWeight('natural skin',自然皮肤))
 
-            if bare_face > 0:
-                prompt.append(applyWeight('bare face',bare_face))
+            if 素颜 > 0:
+                prompt.append(applyWeight('bare face',素颜))
 
-            if washed_face > 0:
-                prompt.append(applyWeight('washed-face',washed_face))
+            if 洗脸程度 > 0:
+                prompt.append(applyWeight('washed-face',洗脸程度))
 
-            if dried_face > 0:
-                prompt.append(applyWeight('dried-face',dried_face))
+            if 干燥脸 > 0:
+                prompt.append(applyWeight('dried-face',干燥脸))
 
-            if skin_details > 0:
-                prompt.append(applyWeight('detailed skin',skin_details))
+            if 皮肤细节 > 0:
+                prompt.append(applyWeight('detailed skin',皮肤细节))
 
-            if skin_pores > 0:
-                prompt.append(applyWeight('skin pores',skin_pores))
+            if 皮肤毛孔 > 0:
+                prompt.append(applyWeight('skin pores',皮肤毛孔))
 
-            if skin_imperfections > 0:
-                prompt.append(applyWeight('skin imperfections',skin_imperfections))
+            if 皮肤瑕疵 > 0:
+                prompt.append(applyWeight('skin imperfections',皮肤瑕疵))
 
-            if skin_acne > 0:
-                prompt.append(applyWeight('acne, skin with acne',skin_acne))
+            if 皮肤痤疮_痘痘 > 0:
+                prompt.append(applyWeight('acne, skin with acne',皮肤痤疮_痘痘))
 
-            if wrinkles > 0:
-                prompt.append(applyWeight('wrinkles',wrinkles))
+            if 皱纹 > 0:
+                prompt.append(applyWeight('wrinkles',皱纹))
 
-            if tanned_skin > 0:
-                prompt.append(applyWeight('tanned skin',tanned_skin))
+            if 晒黑_小麦色皮肤 > 0:
+                prompt.append(applyWeight('tanned skin',晒黑_小麦色皮肤))
 
-            if dimples > 0:
-                prompt.append(applyWeight('dimples',dimples))
+            if 酒窝 > 0:
+                prompt.append(applyWeight('dimples',酒窝))
 
-            if freckles > 0:
-                prompt.append(applyWeight('freckles',freckles))
+            if 雀斑 > 0:
+                prompt.append(applyWeight('freckles',雀斑))
 
-            if moles > 0:
-                prompt.append(applyWeight('moles',moles))
+            if 痣 > 0:
+                prompt.append(applyWeight('moles',痣))
 
-            if eyes_details > 0:
-                prompt.append(applyWeight('eyes details',eyes_details))
+            if 眼睛细节 > 0:
+                prompt.append(applyWeight('eyes details',眼睛细节))
 
-            if iris_details > 0:
-                prompt.append(applyWeight('iris details',iris_details))
+            if 虹膜细节 > 0:
+                prompt.append(applyWeight('iris details',虹膜细节))
 
-            if circular_iris > 0:
-                prompt.append(applyWeight('circular details',circular_iris))
+            if 环形虹膜 > 0:
+                prompt.append(applyWeight('circular details',环形虹膜))
 
-            if circular_pupil > 0:
-                prompt.append(applyWeight('circular pupil',circular_pupil))
+            if 圆形瞳孔 > 0:
+                prompt.append(applyWeight('circular pupil',圆形瞳孔))
 
         if len(prompt) > 0:
             prompt = ', '.join(prompt)

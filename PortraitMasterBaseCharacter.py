@@ -19,34 +19,34 @@ class PortraitMasterBaseCharacter:
                 "seed": ("INT", {"forceInput": True}),
             },
             "required": {
-                "shot": (['-'] + [rand_opt] + lists['shot'], {
+                "镜头": (['-'] + [rand_opt] + lists['shot'], {
                     "default": '-',
                 }),
-                "shot_weight": ("FLOAT", {
+                "镜头权重": ("FLOAT", {
                     "default": 1,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "gender": (['-'] + [rand_opt] + lists['gender'], {
+                "性别": (['-'] + [rand_opt] + lists['gender'], {
                     "default": '-',
                 }),
-                "androgynous": ("FLOAT", {
+                "跨性别程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "ugly": ("FLOAT", {
+                "丑陋程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "ordinary_face": ("FLOAT", {
+                "大众脸": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
@@ -56,98 +56,97 @@ class PortraitMasterBaseCharacter:
                 # "age": (['-'] + [rand_opt] + lists['age'], {
                 #     "default": '-',
                 # }),
-                "age": ("INT", {
-                    "default": 0,
+                "年龄": ("INT", {
+                    "default": 22,
                     "min": 1,
                     "max": 120,
                     "step": 1,
-                    "display": "slider",
                 }),
-                "nationality_1": (['-'] + [rand_opt] + lists['nationality'], {
+                "国籍_1": (['-'] + [rand_opt] + lists['nationality'], {
                     "default": '-',
                 }),
-                "nationality_2": (['-'] + [rand_opt] + lists['nationality'], {
+                "国籍_2": (['-'] + [rand_opt] + lists['nationality'], {
                     "default": '-',
                 }),
-                "nationality_mix": ("FLOAT", {
+                "国籍混血": ("FLOAT", {
                     "default": 0.5,
                     "min": 0,
                     "max": 1,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "body_type": (['-'] + [rand_opt] + lists['body_type'], {
+                "体型": (['-'] + [rand_opt] + lists['body_type'], {
                     "default": '-',
                 }),
-                "body_type_weight": ("FLOAT", {
+                "体型权重": ("FLOAT", {
                     "default": 1,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "eyes_color": (['-'] + [rand_opt] + lists['eyes_color'], {
+                "眼睛颜色": (['-'] + [rand_opt] + lists['eyes_color'], {
                     "default": '-',
                 }),
-                "eyes_shape": (['-'] + [rand_opt] + lists['eyes_shape'], {
+                "眼睛形状": (['-'] + [rand_opt] + lists['eyes_shape'], {
                     "default": '-',
                 }),
-                "lips_color": (['-'] + [rand_opt] + lists['lips_color'], {
+                "唇色": (['-'] + [rand_opt] + lists['lips_color'], {
                     "default": '-',
                 }),
-                "lips_shape": (['-'] + [rand_opt] + lists['lips_shape'], {
+                "唇形": (['-'] + [rand_opt] + lists['lips_shape'], {
                     "default": '-',
                 }),
-                "facial_expression": (['-'] + [rand_opt] + lists['face_expression'], {
+                "面部表情": (['-'] + [rand_opt] + lists['face_expression'], {
                     "default": '-',
                 }),
-                "facial_expression_weight": ("FLOAT", {
+                "面部表情权重": ("FLOAT", {
                     "default": 1,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "face_shape": (['-'] + [rand_opt] + lists['face_shape'], {
+                "脸型": (['-'] + [rand_opt] + lists['face_shape'], {
                     "default": '-',
                 }),
-                "face_shape_weight": ("FLOAT", {
+                "脸型权重": ("FLOAT", {
                     "default": 1,
                     "step": 0.05,
                     "min": 0,
                     "max": max_float_value,
                     "display": "slider",
                 }),
-                "facial_asymmetry": ("FLOAT", {
+                "面部不对称": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "hair_style": (['-'] + [rand_opt] + lists['hair_style'], {
+                "发型": (['-'] + [rand_opt] + lists['hair_style'], {
                     "default": '-',
                 }),
-                "hair_color": (['-'] + [rand_opt] + lists['hair_color'], {
+                "发色": (['-'] + [rand_opt] + lists['hair_color'], {
                     "default": '-',
                 }),
-                "hair_length": (['-'] + [rand_opt] + lists['hair_length'], {
+                "头发长度": (['-'] + [rand_opt] + lists['hair_length'], {
                     "default": '-',
                 }),
-                "disheveled": ("FLOAT", {
+                "凌乱程度": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "beard": (['-'] + [rand_opt] + lists['beard'], {
+                "胡子": (['-'] + [rand_opt] + lists['beard'], {
                     "default": '-',
                 }),
-                "beard_color": (['-'] + [rand_opt] + lists['beard_color'], {
+                "胡子颜色": (['-'] + [rand_opt] + lists['beard_color'], {
                     "default": '-',
                 }),
-                "active": ("BOOLEAN", {"default": True}),
+                "启用": ("BOOLEAN", {"default": True}),
             }
         }
 
@@ -162,34 +161,34 @@ class PortraitMasterBaseCharacter:
             self,
             text_in='',
             seed=0,
-            shot='-',
-            shot_weight=1,
-            gender='-',
-            androgynous=0,
-            ugly=0,
-            ordinary_face=0,
-            age=30,
-            nationality_1='-',
-            nationality_2='-',
-            nationality_mix=0.5,
-            body_type='-',
-            body_type_weight=1,
-            eyes_color='-',
-            eyes_shape='-',
-            lips_color='-',
-            lips_shape='-',
-            facial_expression='-',
-            facial_expression_weight=1,
-            face_shape='-',
-            face_shape_weight=1,
-            facial_asymmetry=0,
-            hair_style='-',
-            hair_color='-',
-            hair_length='-',
-            disheveled=0,
-            beard='-',
-            beard_color='-',
-            active=True
+            镜头='-',
+            镜头权重=1,
+            性别='-',
+            跨性别程度=0,
+            丑陋程度=0,
+            大众脸=0,
+            年龄=30,
+            国籍_1='-',
+            国籍_2='-',
+            国籍混血=0.5,
+            体型='-',
+            体型权重=1,
+            眼睛颜色='-',
+            眼睛形状='-',
+            唇色='-',
+            唇形='-',
+            面部表情='-',
+            面部表情权重=1,
+            脸型='-',
+            脸型权重=1,
+            面部不对称=0,
+            发型='-',
+            发色='-',
+            头发长度='-',
+            凌乱程度=0,
+            胡子='-',
+            胡子颜色='-',
+            启用=True
         ):
 
         prompt = []
@@ -197,44 +196,44 @@ class PortraitMasterBaseCharacter:
         if text_in != '':
             prompt.append(text_in)
 
-        if active:
+        if 启用:
 
-            if shot_weight > 0:
-                if shot == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['shot']),shot_weight))
-                elif shot != '-':
-                    prompt.append(applyWeight(shot,shot_weight))
+            if 镜头权重 > 0:
+                if 镜头 == rand_opt:
+                    prompt.append(applyWeight(random.choice(lists['shot']),镜头权重))
+                elif 镜头 != '-':
+                    prompt.append(applyWeight(镜头,镜头权重))
 
-            if gender == rand_opt:
+            if 性别 == rand_opt:
                 gender_opt = random.choice(lists['gender']) + ' '
-            elif gender != '-':
-                gender_opt = gender + ' '
+            elif 性别 != '-':
+                gender_opt = dicts['gender'][性别] + ' '
             else:
                 gender_opt = ''
 
-            if age == rand_opt:
-                age_opt = random.choice(lists['age']) + '-years-old '
-            elif age != '-':
-                age_opt = f'{age}-years-old '
+            if 年龄 == rand_opt:
+                age_opt = str(random.randint(18, 100)) + '-years-old '
+            elif 年龄 != '-':
+                age_opt = f'{年龄}-years-old '
             else:
                 age_opt = ''
 
-            if androgynous > 0:
-                androgynous_opt = applyWeight('androgynous',androgynous) + ' '
+            if 跨性别程度 > 0:
+                androgynous_opt = applyWeight('androgynous',跨性别程度) + ' '
             else:
                 androgynous_opt = ''
 
-            if ugly > 0:
-                ugly_opt = applyWeight('ugly',ugly) + ' '
+            if 丑陋程度 > 0:
+                ugly_opt = applyWeight('ugly',丑陋程度) + ' '
             else:
                 ugly_opt = ''
 
             nationality = ''
-            if nationality_1 != '-' or nationality_2 != '-':
-                nationality_1_opt = random.choice(lists['nationality']) if nationality_1 == rand_opt else nationality_1
-                nationality_2_opt = random.choice(lists['nationality']) if nationality_2 == rand_opt else nationality_2
+            if 国籍_1 != '-' or 国籍_2 != '-':
+                nationality_1_opt = random.choice(lists['nationality']) if 国籍_1 == rand_opt else dicts['nationality'][国籍_1]
+                nationality_2_opt = random.choice(lists['nationality']) if 国籍_2 == rand_opt else dicts['nationality'][国籍_2]
                 if nationality_1_opt and nationality_2_opt and nationality_1_opt != '-' and nationality_2_opt != '-':
-                    nationality = f'[{nationality_1_opt}:{nationality_2_opt}:{str(round(nationality_mix, 2))}] '
+                    nationality = f'[{nationality_1_opt}:{nationality_2_opt}:{str(round(国籍混血, 2))}] '
                 else:
                     nationality = nationality_1_opt + ' ' if nationality_1_opt != '-' else nationality_2_opt + ' '
 
@@ -243,77 +242,77 @@ class PortraitMasterBaseCharacter:
                 t = t.strip()
                 prompt.append(t)
 
-            if ordinary_face > 0:
-                prompt.append(applyWeight('ordinary face',ordinary_face))
+            if 大众脸 > 0:
+                prompt.append(applyWeight('ordinary face',大众脸))
 
-            if body_type_weight > 0:
-                if body_type == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['body_type']),body_type_weight))
-                elif body_type != '-':
-                    prompt.append(applyWeight(body_type,body_type_weight))
+            if 体型权重 > 0:
+                if 体型 == rand_opt:
+                    prompt.append(applyWeight(random.choice(lists['body_type']),体型权重))
+                elif 体型 != '-':
+                    prompt.append(applyWeight(dicts['body_type'][体型],体型权重))
 
-            if eyes_color == rand_opt:
+            if 眼睛颜色 == rand_opt:
                 prompt.append('(' + random.choice(lists['eyes_color']) + ' eyes:1.05)')
-            elif eyes_color != '-':
-                prompt.append('(' + eyes_color + ' eyes:1.05)')
+            elif 眼睛颜色 != '-':
+                prompt.append('(' + dicts['eyes_color'][眼睛颜色] + ' eyes:1.05)')
 
-            if eyes_shape == rand_opt:
+            if 眼睛形状 == rand_opt:
                 prompt.append('(' + random.choice(lists['eyes_shape']) + ':1.05)')
-            elif eyes_shape != '-':
-                prompt.append('(' + eyes_shape + ':1.05)')
+            elif 眼睛形状 != '-':
+                prompt.append('(' + dicts['eyes_shape'][眼睛形状] + ':1.05)')
 
-            if lips_color == rand_opt:
+            if 唇色 == rand_opt:
                 prompt.append('(' + random.choice(lists['lips_color']) + ':1.05)')
-            elif lips_color != '-':
-                prompt.append('(' + lips_color + ':1.05)')
+            elif 唇色 != '-':
+                prompt.append('(' + dicts['lips_color'][唇色] + ':1.05)')
 
-            if lips_shape == rand_opt:
+            if 唇形 == rand_opt:
                 prompt.append('(' + random.choice(lists['lips_shape']) + ':1.05)')
-            elif lips_shape != '-':
-                prompt.append('(' + lips_shape + ':1.05)')
+            elif 唇形 != '-':
+                prompt.append('(' + dicts['lips_shape'][唇形] + ':1.05)')
 
-            if facial_expression_weight > 0:
-                if facial_expression == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['face_expression']),facial_expression_weight))
-                elif facial_expression != '-':
-                    prompt.append(applyWeight(facial_expression,facial_expression_weight))
+            if 面部表情权重 > 0:
+                if 面部表情 == rand_opt:
+                    prompt.append(applyWeight(random.choice(lists['face_expression']),面部表情权重))
+                elif 面部表情 != '-':
+                    prompt.append(applyWeight(dicts['face_expression'][面部表情],面部表情权重))
 
-            if face_shape_weight > 0:
-                if face_shape == rand_opt:
-                    prompt.append(applyWeight(random.choice(lists['face_shape']) + ' face-shape',face_shape_weight))
-                elif face_shape != '-':
-                    prompt.append(applyWeight(face_shape + ' face-shape',face_shape_weight))
+            if 脸型权重 > 0:
+                if 脸型 == rand_opt:
+                    prompt.append(applyWeight(random.choice(lists['face_shape']) + ' face-shape',脸型权重))
+                elif 脸型 != '-':
+                    prompt.append(applyWeight(dicts['face_shape'][脸型] + ' face-shape',脸型权重))
 
-            if facial_asymmetry > 0:
-                prompt.append(applyWeight('facial asymmetry, face asymmetry',facial_asymmetry))
+            if 面部不对称 > 0:
+                prompt.append(applyWeight('facial asymmetry, face asymmetry',面部不对称))
 
-            if hair_style == rand_opt:
+            if 发型 == rand_opt:
                 prompt.append('(' + random.choice(lists['hair_style']) + ' hair style:1.05)')
-            elif hair_style != '-':
-                prompt.append('(' + hair_style + ' hair style:1.05)')
+            elif 发型 != '-':
+                prompt.append('(' + dicts['hair_style'][发型] + ' hair style:1.05)')
 
-            if hair_color == rand_opt:
+            if 发色 == rand_opt:
                 prompt.append('(' + random.choice(lists['hair_color']) + ' hair color:1.05)')
-            elif hair_color != '-':
-                prompt.append('(' + hair_color + ' hair color:1.05)')
+            elif 发色 != '-':
+                prompt.append('(' + dicts['hair_color'][发色] + ' hair color:1.05)')
 
-            if hair_length == rand_opt:
+            if 头发长度 == rand_opt:
                 prompt.append('(' + random.choice(lists['hair_length']) + ' hair length:1.05)')
-            elif hair_length != '-':
-                prompt.append('(' + hair_length + ' hair length:1.05)')
+            elif 头发长度 != '-':
+                prompt.append('(' + dicts['hair_length']['头发长度'] + ' hair length:1.05)')
 
-            if disheveled > 0:
-                prompt.append(applyWeight('disheveled',disheveled))
+            if 凌乱程度 > 0:
+                prompt.append(applyWeight('disheveled',凌乱程度))
 
-            if beard == rand_opt:
+            if 胡子 == rand_opt:
                 prompt.append('(' + random.choice(lists['beard']) + ':1.05)"')
-            elif beard != '-':
-                prompt.append('(' + beard + ':1.05)"')
+            elif 胡子 != '-':
+                prompt.append('(' + dicts['beard'][胡子] + ':1.05)"')
 
-            if beard_color == rand_opt:
+            if 胡子颜色 == rand_opt:
                 prompt.append('(' + random.choice(lists['beard_color']) + ' beard color:1.05)"')
-            elif beard_color != '-':
-                prompt.append('(' + beard_color + ' beard color:1.05)"')
+            elif 胡子颜色 != '-':
+                prompt.append('(' + dicts['beard_color'][胡子颜色] + ' beard color:1.05)"')
 
         if len(prompt) > 0:
             prompt = ', '.join(prompt)

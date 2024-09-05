@@ -300,20 +300,20 @@ class PortraitMasterLegacy:
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "光的类型": (['-'] + lightTypeList, {
+                "光照类型": (['-'] + lightTypeList, {
                     "default": '-',
                 }),
-                "光的方向": (['-'] + lightDirectionList, {
+                "光照方向": (['-'] + lightDirectionList, {
                     "default": '-',
                 }),
-                "光的权重": ("FLOAT", {
+                "光照权重": ("FLOAT", {
                     "default": 0,
                     "min": 0,
                     "max": max_float_value,
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "照片真实化增强": (["enable", "disable"],),
+                "照片写实增强": (["enable", "disable"],),
                 "prompt_start": ("STRING", {
                     "multiline": True,
                     "default": "raw photo, (realistic:1.5)"
@@ -385,7 +385,7 @@ class PortraitMasterLegacy:
 
     CATEGORY = CATEGORY
 
-    def pm(self, 镜头类型="-", 镜头权重=1, 性别="-", 体型="-", 体型权重=0, 眼睛颜色="-", 表情="-", 表情权重=0, 脸型="-", 脸型权重=0, 国籍_1="-", 国籍_2="-", 国籍混血=0.5, 年龄=30, 发型="-", 发型颜色="-", 凌乱程度=0, 酒窝=0, 雀斑=0, 皮肤毛孔=0, 皮肤细节=0, 痣=0, 皮肤瑕疵=0, 皱纹=0, 晒黑_小麦色皮肤=0, 眼睛细节=1, 虹膜细节=1, 环形虹膜=1, 圆形瞳孔=1, 面部不对称=0, prompt_additional="", prompt_start="", prompt_end="", 光的类型="-", 光的方向="-", 光的权重=0, negative_prompt="", 照片真实化增强="disable", 胡子="-", 模特姿势="-", 皮肤痤疮=0, style_1="-", style_1_weight=0, style_2="-", style_2_weight=0, 跨性别程度=0, 自然皮肤=0, 素颜=0, 洗脸程度=0, 干脸程度=0, 随机性别=False, 随机年龄=False, 随机种族=False, 随机体型=False,随机发型=False, 随机眼睛颜色=False, 随机发色=False, 随机凌乱=False, 随机雀斑=False, 随机痣=False, 随机胡子=False, 随机镜头=False, 随机跨性别=False, 随机面部表情=False, 随机皮肤瑕疵=False, random_style_1=False, random_style_2=False, random_body_type=False, 随机模特姿势=False, 头发长度="-", 随机头发长度=False, 眼睛形状="-", 随机眼睛形状=False, 唇色="-", 随机唇色=False, 唇形="-", 随机唇形=False, 妆容="-", 随机妆容=False, 服装="-", 随机服装=False, 随机脸型=False, seed=0):
+    def pm(self, 镜头类型="-", 镜头权重=1, 性别="-", 体型="-", 体型权重=0, 眼睛颜色="-", 表情="-", 表情权重=0, 脸型="-", 脸型权重=0, 国籍_1="-", 国籍_2="-", 国籍混血=0.5, 年龄=30, 发型="-", 发型颜色="-", 凌乱程度=0, 酒窝=0, 雀斑=0, 皮肤毛孔=0, 皮肤细节=0, 痣=0, 皮肤瑕疵=0, 皱纹=0, 晒黑_小麦色皮肤=0, 眼睛细节=1, 虹膜细节=1, 环形虹膜=1, 圆形瞳孔=1, 面部不对称=0, prompt_additional="", prompt_start="", prompt_end="", 光照类型="-", 光照方向="-", 光照权重=0, negative_prompt="", 照片写实增强="disable", 胡子="-", 模特姿势="-", 皮肤痤疮=0, style_1="-", style_1_weight=0, style_2="-", style_2_weight=0, 跨性别程度=0, 自然皮肤=0, 素颜=0, 洗脸程度=0, 干脸程度=0, 随机性别=False, 随机年龄=False, 随机种族=False, 随机体型=False,随机发型=False, 随机眼睛颜色=False, 随机发色=False, 随机凌乱=False, 随机雀斑=False, 随机痣=False, 随机胡子=False, 随机镜头=False, 随机跨性别=False, 随机面部表情=False, 随机皮肤瑕疵=False, random_style_1=False, random_style_2=False, random_body_type=False, 随机模特姿势=False, 头发长度="-", 随机头发长度=False, 眼睛形状="-", 随机眼睛形状=False, 唇色="-", 随机唇色=False, 唇形="-", 随机唇形=False, 妆容="-", 随机妆容=False, 服装="-", 随机服装=False, 随机脸型=False, seed=0):
 
         prompt = []
 
@@ -603,11 +603,11 @@ class PortraitMasterLegacy:
         if 面部不对称 > 0:
             prompt.append(applyWeight('facial asymmetry, face asymmetry',面部不对称))
 
-        if 光的类型 != '-' and 光的权重 > 0:
-            if 光的方向 != '-':
-                prompt.append(applyWeight(f"{lightTypeDict[光的类型]} {lightDirectionDict[光的方向]}",光的权重))
+        if 光照类型 != '-' and 光照权重 > 0:
+            if 光照方向 != '-':
+                prompt.append(applyWeight(f"{lightTypeDict[光照类型]} {lightDirectionDict[光照方向]}",光照权重))
             else:
-                prompt.append(applyWeight(f"{lightTypeDict[光的类型]}",光的权重))
+                prompt.append(applyWeight(f"{lightTypeDict[光照类型]}",光照权重))
 
         if style_1 != '-' and style_1_weight > 0:
             prompt.append(applyWeight(style_1,style_1_weight))
@@ -621,11 +621,11 @@ class PortraitMasterLegacy:
         prompt = ", ".join(prompt)
         prompt = prompt.lower()
 
-        if 照片真实化增强 == "enable":
-            # prompt = prompt + ", (professional photo, balanced photo, balanced exposure:1.2)"
-            prompt = prompt + ", (detailed, professional photo, perfect exposition:1.25), (film grain:1.5)"
+        if 照片写实增强 == "enable":
+            prompt = prompt + ", (professional photo, balanced photo, balanced exposure:1.2)"
+            # prompt = prompt + ", (detailed, professional photo, perfect exposition:1.25), (film grain:1.5)"
 
-        if 照片真实化增强 == "enable":
+        if 照片写实增强 == "enable":
             negative_prompt = negative_prompt + ", (shinny skin, shiny skin, reflections on the skin, skin reflections:1.35)"
 
         print("=============================================================")

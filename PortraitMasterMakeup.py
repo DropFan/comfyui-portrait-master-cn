@@ -18,19 +18,19 @@ class PortraitMasterMakeup:
                 "seed": ("INT", {"forceInput": True}),
             },
             "required": {
-                "makeup_style": (['-'] + [rand_opt] + lists['makeup'], {
+                "化妆风格": (['-'] + [rand_opt] + lists['makeup'], {
                     "default": '-',
                 }),
-                "makeup_color": (['-'] + [rand_opt] + lists['makeup_color'], {
+                "化妆颜色": (['-'] + [rand_opt] + lists['makeup_color'], {
                     "default": '-',
                 }),
-                "eyeshadow": ("BOOLEAN", {"default": False}),
-                "eyeliner": ("BOOLEAN", {"default": False}),
-                "mascara": ("BOOLEAN", {"default": False}),
-                "blush": ("BOOLEAN", {"default": False}),
-                "lipstick": ("BOOLEAN", {"default": False}),
-                "lip_gloss": ("BOOLEAN", {"default": False}),
-                "active": ("BOOLEAN", {"default": True}),
+                "眼影": ("BOOLEAN", {"default": False}),
+                "眼线": ("BOOLEAN", {"default": False}),
+                "睫毛膏": ("BOOLEAN", {"default": False}),
+                "腮红": ("BOOLEAN", {"default": False}),
+                "口红": ("BOOLEAN", {"default": False}),
+                "唇彩": ("BOOLEAN", {"default": False}),
+                "启用": ("BOOLEAN", {"default": True}),
             }
         }
 
@@ -45,15 +45,15 @@ class PortraitMasterMakeup:
             self,
             text_in='',
             seed=0,
-            makeup_style='-',
-            makeup_color='-',
-            eyeshadow=False,
-            eyeliner=False,
-            mascara=False,
-            blush=False,
-            lipstick=False,
-            lip_gloss=False,
-            active=True,
+            化妆风格='-',
+            化妆颜色='-',
+            眼影=False,
+            眼线=False,
+            睫毛膏=False,
+            腮红=False,
+            口红=False,
+            唇彩=False,
+            启用=True,
     ):
 
         prompt = []
@@ -61,24 +61,23 @@ class PortraitMasterMakeup:
         if text_in != '':
             prompt.append(text_in)
 
-        if active:
-
-            if makeup_style == rand_opt:
+        if 启用:
+            if 化妆风格 == rand_opt:
                 prompt.append('(' + random.choice(lists['makeup']) + ':1.05)')
-            elif makeup_style != '-':
-                prompt.append(f"({makeup_style}:1.05)")
+            elif 化妆风格 != '-':
+                prompt.append(f"({化妆风格}:1.05)")
 
-            if makeup_color == rand_opt:
+            if 化妆颜色 == rand_opt:
                 prompt.append('(' + random.choice(lists['makeup_color']) + ' make-up color:1.05)')
-            elif makeup_color != '-':
-                prompt.append(f"({makeup_color} make-up color:1.05)")
+            elif 化妆颜色 != '-':
+                prompt.append(f"({化妆颜色} make-up color:1.05)")
 
-            if eyeshadow: prompt.append("(eyeshadow make-up:1.05)")
-            if eyeliner: prompt.append("(eyeliner make-up:1.05)")
-            if mascara: prompt.append("(mascara make-up:1.05)")
-            if blush: prompt.append("(blush make-up:1.05)")
-            if lipstick: prompt.append("(lipstick make-up:1.05)")
-            if lip_gloss: prompt.append("(lip gloss make-up:1.05)")
+            if 眼影: prompt.append("(eyeshadow make-up:1.05)")
+            if 眼线: prompt.append("(eyeliner make-up:1.05)")
+            if 睫毛膏: prompt.append("(mascara make-up:1.05)")
+            if 腮红: prompt.append("(blush make-up:1.05)")
+            if 口红: prompt.append("(lipstick make-up:1.05)")
+            if 唇彩: prompt.append("(lip gloss make-up:1.05)")
 
         if len(prompt) > 0:
             prompt = ', '.join(prompt)

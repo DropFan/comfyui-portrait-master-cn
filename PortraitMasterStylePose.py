@@ -20,25 +20,25 @@ class PortraitMasterStylePose:
                 "seed": ("INT", {"forceInput": True}),
             },
             "required": {
-                "model_pose": (['-'] + [rand_opt] + lists['model_pose'], {
+                "模特姿势": (['-'] + [rand_opt] + lists['model_pose'], {
                     "default": '-',
                 }),
-                "clothes": (['-'] + [rand_opt] + lists['clothes'], {
+                "服装": (['-'] + [rand_opt] + lists['clothes'], {
                     "default": '-',
                 }),
-                "female_lingerie": (['-'] + [rand_opt] + lists['female_lingerie'], {
+                "女士内衣": (['-'] + [rand_opt] + lists['female_lingerie'], {
                     "default": '-',
                 }),
-                "makeup": (['-'] + [rand_opt] + lists['makeup'], {
+                "妆容": (['-'] + [rand_opt] + lists['makeup'], {
                     "default": '-',
                 }),
-                "light_type": (['-'] + [rand_opt] + lists['light_type'], {
+                "光照类型": (['-'] + [rand_opt] + lists['light_type'], {
                     "default": '-',
                 }),
-                "light_direction": (['-'] + [rand_opt] + lists['light_direction'], {
+                "光照方向": (['-'] + [rand_opt] + lists['light_direction'], {
                     "default": '-',
                 }),
-                "light_weight": ("FLOAT", {
+                "光照权重": ("FLOAT", {
                     "default": 1,
                     "min": 0,
                     "max": max_float_value,
@@ -65,8 +65,8 @@ class PortraitMasterStylePose:
                     "step": 0.05,
                     "display": "slider",
                 }),
-                "photorealism_improvement": ("BOOLEAN", {"default": True}),
-                "active": ("BOOLEAN", {"default": True}),
+                "照片写实增强": ("BOOLEAN", {"default": True}),
+                "启用": ("BOOLEAN", {"default": True}),
             }
         }
 
@@ -81,19 +81,19 @@ class PortraitMasterStylePose:
             self,
             text_in='',
             seed=0,
-            model_pose='-',
-            clothes='-',
-            female_lingerie='-',
-            makeup='-',
-            light_type='-',
-            light_direction='-',
-            light_weight=1,
+            模特姿势='-',
+            服装='-',
+            女士内衣='-',
+            妆容='-',
+            光照类型='-',
+            光照方向='-',
+            光照权重=1,
             style_1='-',
             style_1_weight=1,
             style_2='-',
             style_2_weight=1,
-            photorealism_improvement=False,
-            active=True
+            照片写实增强=False,
+            启用=True
     ):
 
         prompt = []
@@ -101,49 +101,49 @@ class PortraitMasterStylePose:
         if text_in != '':
             prompt.append(text_in)
 
-        if active:
+        if 启用:
 
-            if makeup == rand_opt:
+            if 妆容 == rand_opt:
                 prompt.append('(' + random.choice(lists['makeup']) + ':1.05)')
-            elif makeup != '-':
-                prompt.append(f"({makeup}:1.05)")
+            elif 妆容 != '-':
+                prompt.append(f"({dicts['makeup'][妆容]}:1.05)")
 
-            if model_pose == rand_opt:
+            if 模特姿势 == rand_opt:
                 prompt.append('(' + random.choice(lists['model_pose']) + ':1.25)')
-            elif model_pose != '-':
-                prompt.append(f"({model_pose}:1.25)")
+            elif 模特姿势 != '-':
+                prompt.append(f"({dicts['model_pose'][模特姿势]}:1.25)")
 
-            if clothes == rand_opt:
+            if 服装 == rand_opt:
                 prompt.append('(' + random.choice(lists['clothes']) + ':1.25)')
-            elif clothes != '-':
-                prompt.append(f"({clothes}:1.25)")
+            elif 服装 != '-':
+                prompt.append(f"({dicts['clothes'][服装]}:1.25)")
 
-            if female_lingerie == rand_opt:
+            if 女士内衣 == rand_opt:
                 prompt.append('(' + random.choice(lists['female_lingerie']) + ':1.25)')
-            elif female_lingerie != '-':
-                prompt.append(f"({female_lingerie}:1.25)")
+            elif 女士内衣 != '-':
+                prompt.append(f"({dicts['female_lingerie'][女士内衣]}:1.25)")
 
-            if light_type == rand_opt:
-                prompt.append(applyWeight(random.choice(lists['light_type']),light_weight))
-            elif light_type != '-':
-                prompt.append(applyWeight(light_type,light_weight))
+            if 光照类型 == rand_opt:
+                prompt.append(applyWeight(random.choice(lists['light_type']),光照权重))
+            elif 光照类型 != '-':
+                prompt.append(applyWeight(dicts['light_type'][光照类型],光照权重))
 
-            if light_direction == rand_opt:
-                prompt.append(applyWeight(random.choice(lists['light_direction']),light_weight))
-            elif light_direction != '-':
-                prompt.append(applyWeight(light_direction,light_weight))
+            if 光照方向 == rand_opt:
+                prompt.append(applyWeight(random.choice(lists['light_direction']),光照权重))
+            elif 光照方向 != '-':
+                prompt.append(applyWeight(dicts['light_direction'][光照方向],光照权重))
 
             if style_1 == rand_opt:
                 prompt.append(applyWeight(random.choice(lists['style']),style_1_weight))
             elif style_1 != '-':
-                prompt.append(applyWeight(style_1,style_1_weight))
+                prompt.append(applyWeight(dicts['style'][style_1],style_1_weight))
 
             if style_2 == rand_opt:
                 prompt.append(applyWeight(random.choice(lists['style']),style_2_weight))
             elif style_2 != '-':
-                prompt.append(applyWeight(style_2,style_2_weight))
+                prompt.append(applyWeight(dicts['style'][style_2],style_2_weight))
 
-            if photorealism_improvement:
+            if 照片写实增强:
                 prompt.append('(professional photo, balanced photo, balanced exposure:1.2)')
 
         if len(prompt) > 0:
