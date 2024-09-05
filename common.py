@@ -59,7 +59,7 @@ def applyWeight(text, weight):
 
 # global vars
 
-rand_opt = 'random 🎲'
+rand_opt = '随机 🎲'
 
 # Load lists
 

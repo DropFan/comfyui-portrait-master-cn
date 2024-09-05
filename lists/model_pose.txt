@@ -152,6 +152,8 @@ Standing Pose
 Stretching Pose
 回眸姿势
 The Over-the-Shoulder Look Pose
+思考者姿势
+Thinker Pose
 沉思停顿姿势
 Thoughtful Pause Pose
 歪头姿势
@@ -164,6 +166,8 @@ Touching Face Pose
 Touching Hair Pose
 旋转姿势
 Twirling Pose
+打字姿势
+Typing Pose
 眼睛上挑姿势
 Upturned Eyes Shape
 时尚杂志姿势

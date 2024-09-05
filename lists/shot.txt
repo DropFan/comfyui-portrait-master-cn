@@ -2,15 +2,15 @@
 Head portrait
 头肩像
 Head and shoulders portrait
-半身像
+半身肖像
 Half-length portrait
-全身像
+全身肖像
 Full-length portrait
-脸
+脸部
 Face
 肖像
 Portrait
-全身
+全身 Full Body
 Full body
 特写
 Close-up
@@ -18,3 +18,5 @@ Close-up
 Side portrait
 半身
 Half-body
+腿部
+Leg
