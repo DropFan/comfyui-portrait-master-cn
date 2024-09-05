@@ -3,8 +3,10 @@
 ComfyUI 肖像大师中文版，这是一个用于生成 prompt 文本的 node, 无其他依赖。
 
 1. 主要汉化了原版，将数据文件改为中英两行，功能未做大的改动。
-2. 仅汉化了 2.9.2 的经典版本 node，v3 版本只是拆分为几个细分 node, 暂时觉得没必要
-3. 另外添加了一个 ImageSaver (修改自 ComfyUI-Crystools)，用于保存 prompt 等元信息到 exif
+2. --仅汉化了 2.9.2 的经典版本 node，v3 版本只是拆分为几个细分 node, 暂时觉得没必要--
+   已经将 2.9.2 单节点及 v3 版本多节点均汉化完成。
+3. 将原版代码按类分拆文件，便于扩展和维护
+4. 另外添加了一个 ImageSaver (修改自 ComfyUI-Crystools)，用于保存 prompt 等元信息到 exif
 
 
 **_This is a fork of the original project, updated to work with the latest version of ComfyUI-Portrait-Master_**
