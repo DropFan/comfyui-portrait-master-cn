@@ -1,5 +1,7 @@
 爱克发维斯塔（一种胶卷风格）
 Agfa Vista
+古旧风格
+Antique Look
 阿斯蒂亚（一种胶卷风格）
 Astia
 北极光（常用于形容特定摄影效果）
@@ -34,6 +36,8 @@ Duotone
 Ektachrome
 褪色的辉煌效果
 Faded Glory
+童话滤镜风格
+Fairy Tale Filter
 时尚摄影类别
 Fashion Photography
 黄金时刻光晕效果
@@ -42,6 +46,8 @@ Golden Hour Glow
 Graphic Novel Style
 粗糙高对比度
 Gritty Contrast
+破旧魅力风格
+Grunge Glam
 高动态范围视觉效果
 HDR Look
 高动态范围摄影技法
@@ -50,6 +56,8 @@ HDR Photography
 High Key
 Holga风格
 Holga
+冰蓝色冷调风格
+Ice Blue Chill
 红外线效果滤镜
 Infrared Effect
 柯达彩色胶卷（已停产）
@@ -60,6 +68,8 @@ Lomography风
 Lomography
 低色调风格
 Low Key
+魔幻现实主义风格
+Magical Realism
 火星红色景观效果
 Mars Red Landscape
 哑光质感
@@ -68,10 +78,16 @@ Matte Finish
 Midnight Cool
 极简摄影风格
 Minimalist Photography
+薄荷清新风格
+Minty Fresh Style
+迷雾森林风格
+Misty Forest Style
 单色摄影风格
 Monochromatic Photography
 柔和色彩风格
 Muted Colors
+神秘氛围风格
+Mystic Mood
 自然摄影类别
 Nature Photography
 霓虹灯发光效果
@@ -92,6 +108,10 @@ Polaroid Photography
 Pop Art Colors
 普罗维亚胶卷风格
 Provia
+复古未来主义风格
+Retro Futurism
+乡村魅力风格
+Rustic Charm
 棕褐色摄影风格
 Sepia Photography
 棕褐色调滤镜
@@ -104,6 +124,8 @@ Solarization
 Split Toning
 街头摄影类别
 Street Photography
+阳光闪耀风格
+Sunburst Glow
 日落温暖色调
 Sunset Warmth
 超现实主义摄影风格
@@ -128,3 +150,5 @@ Vintage Photography
 Warm Orange Glow
 水彩效果滤镜
 Watercolor Effect
+野花奇思风格
+Wildflower Whimsy

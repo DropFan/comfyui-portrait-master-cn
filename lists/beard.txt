@@ -38,3 +38,29 @@ Pencil Mustache
 Friendly Mutton Chops
 扎帕胡（长而细的八字胡）
 Zappa Mustache
+方形胡
+Boxed Beard
+骑手胡
+Biker Beard
+海盗胡
+Pirate Beard
+达利胡
+Dali Mustache
+方下巴胡
+Square Jaw Beard
+加长山羊胡
+Extended Goatee
+修剪过的山羊胡
+Trimmed Goatee
+狂野西部胡
+Wild West Beard
+长胡辫
+Long Beard Braids
+法式叉胡
+French Fork Beard
+好莱坞胡
+Hollywoodian Beard
+火枪手胡
+Musketeer Beard
+斑驳胡
+Patchy Beard

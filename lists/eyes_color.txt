@@ -2,20 +2,32 @@
 Albino
 琥珀色
 Amber
+琥珀棕色
+Amber Brown
 黑色
 Black
 蓝色
 Blue
+蓝灰色
+Blue Gray
+棕绿色
+Brown Green
 棕色
 Brown
 绿色
 Green
+绿灰色
+Green Gray
 灰色
 Gray
 淡褐色
 Hazel
 异色症（两眼不同颜色等情况）
 Heterochromia
+浅蓝色
+Light Blue
+浅棕色
+Light Brown
 红色
 Red
 紫色

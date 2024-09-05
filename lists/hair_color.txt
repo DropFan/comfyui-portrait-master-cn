@@ -1,5 +1,7 @@
 赤褐色
 Auburn
+米色 (浅褐色)
+Beige
 黑色
 Black
 金色（女）/浅黄色（男）
@@ -28,11 +30,15 @@ Mahogany
 Multicolored
 淡彩色
 Pastel
+粉色
+Pink
 铂金色
 Platinum
+紫色
+Purple
 红色
 Red
-花白的
+灰白相间（椒盐色）
 Salt and pepper
 银色
 Silver

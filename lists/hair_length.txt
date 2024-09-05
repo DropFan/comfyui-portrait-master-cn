@@ -1,6 +1,14 @@
+光头
+Bald
+超短发
+Crop
 短
 Short
 中
 Medium
+齐肩长的
+Shoulder-Length
 长
 Long
+超长
+Very Long

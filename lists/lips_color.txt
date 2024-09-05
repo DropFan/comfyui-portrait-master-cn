@@ -4,20 +4,48 @@ Berry Lips
 Black Lips
 蓝色唇
 Blue Lips
+古铜色唇
+Bronze Lips
 棕色唇
 Brown Lips
 酒红色唇
 Burgundy Lips
+糖果粉唇
+Candy Pink Lips
+洋红色唇
+Carmine Lips
+樱桃红唇
+Cerise Lips
+香槟色唇
+Champagne Lips
+肉桂色唇
+Cinnamon Lips
+深紫红色唇
+Claret Lips
 珊瑚色唇
 Coral Lips
+珊瑚粉唇
+Coral Pink Lips
+蔓越莓色唇
+Cranberry Lips
+石榴红色唇
+Garnet Lips
 有光泽的红色唇
 Glossy Red Lips
+蜂蜜色唇
+Honey Lips
+丁香紫唇
+Lilac Lips
 淡紫色唇
 Mauve Lips
+桑葚色唇
+Mulberry Lips
 橙色唇
 Orange Lips
 桃色唇
 Peach Lips
+牡丹色唇
+Peony Lips
 粉色唇
 Pink Lips
 紫红色唇
@@ -26,5 +54,13 @@ Plum Lips
 Purple Lips
 红色唇
 Red Lips
+玫瑰色唇
+Rose Lips
+棕褐色唇
+Tan Lips
+蓝绿色唇
+Teal Lips
+绿松石色唇
+Turquoise Lips
 黄色唇
 Yellow Lips

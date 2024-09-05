@@ -1,5 +1,7 @@
 圆形
 Circle
+娃娃脸
+Baby
 菱形
 Diamond
 心形
@@ -16,7 +18,7 @@ Inverted Triangle
 Long
 长方形
 Oblong
-椭圆形
+椭圆形（鹅蛋脸）
 Oval
 梨形
 Pear

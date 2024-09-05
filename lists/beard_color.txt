@@ -1,5 +1,7 @@
 赤褐色
 Auburn
+米色 (浅褐色)
+Beige
 黑色
 Black
 金黄色
@@ -28,8 +30,12 @@ Mahogany
 Multicolored
 淡彩色
 Pastel
+粉色
+Pink
 铂金色
 Platinum
+紫色
+Purple
 红色
 Red
 黑白相间（盐和胡椒的颜色比喻）

@@ -4,6 +4,8 @@ Amused
 Angry
 焦虑的
 Anxious
+吃惊的
+Astonished
 无聊的
 Bored
 平静的
@@ -32,6 +34,10 @@ Fearful
 Happy
 恋爱中的
 In love
+孤独的
+Lonely
+充满爱意的
+Loving
 紧张的
 Nervous
 平和的
@@ -42,8 +48,12 @@ Pensive
 Prideful
 自豪的
 Proud
+放松的
+Relaxed
 宽慰的
 Relieved
+不安的
+Restless
 悲伤的
 Sad
 讽刺的
@@ -52,6 +62,8 @@ Sarcastic
 Serene
 严肃的
 Serious
+震惊的
+Shocked
 害羞的
 Shy
 愚蠢的
@@ -62,3 +74,11 @@ Smiling
 Surprised
 既惊讶又愉快的
 Surprised and Amused
+疲倦的
+Tired
+沉思的
+Thoughtful
+心烦的
+Upset
+担心的
+Worried

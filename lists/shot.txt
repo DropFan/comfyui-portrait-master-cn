@@ -14,3 +14,7 @@ Portrait
 Full body
 特写
 Close-up
+侧面像
+Side portrait
+半身
+Half-body

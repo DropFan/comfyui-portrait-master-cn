@@ -8,6 +8,10 @@ Avant-garde Makeup
 Bohemian Makeup
 波西米亚风妆容
 Boho Makeup
+中式古风妆
+Chinese Ancient Style Makeup
+中式国风妆
+Chinese National Style Makeup
 经典妆
 Classic Makeup
 截断式眼妆
@@ -24,6 +28,8 @@ Glam Makeup
 Glowy Makeup
 金色妆
 Golden Makeup
+港风妆
+Hong Kong Style Makeup
 单色妆
 Monochromatic Makeup
 自然妆
@@ -34,6 +40,8 @@ Party Makeup
 Retro Makeup
 日落眼妆
 Sunset Eye Makeup
+泰式浓颜妆
+Thai Intense Makeup
 复古风格妆容
 Vintage Makeup
 水彩妆

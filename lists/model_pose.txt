@@ -112,6 +112,8 @@ One Hand on Face Pose
 One Leg Up Pose
 回眸姿势
 Over-the-Shoulder Look Pose
+沉思倚靠姿势
+Pensive Lean Pose
 有力姿势
 Power Pose
 伸手姿势
@@ -150,6 +152,8 @@ Standing Pose
 Stretching Pose
 回眸姿势
 The Over-the-Shoulder Look Pose
+沉思停顿姿势
+Thoughtful Pause Pose
 歪头姿势
 Tilted Head Pose
 摸耳朵姿势
