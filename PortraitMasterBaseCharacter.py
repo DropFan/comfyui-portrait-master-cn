@@ -229,13 +229,19 @@ class PortraitMasterBaseCharacter:
                 ugly_opt = ''
 
             nationality = ''
-            if 国籍_1 != '-' or 国籍_2 != '-':
+            nationality_1_opt = ''
+            nationality_2_opt = ''
+            if 国籍_1 != '-':
                 nationality_1_opt = random.choice(lists['nationality']) if 国籍_1 == rand_opt else dicts['nationality'][国籍_1]
+            if 国籍_2 != '-':
                 nationality_2_opt = random.choice(lists['nationality']) if 国籍_2 == rand_opt else dicts['nationality'][国籍_2]
-                if nationality_1_opt and nationality_2_opt and nationality_1_opt != '-' and nationality_2_opt != '-':
-                    nationality = f'[{nationality_1_opt}:{nationality_2_opt}:{str(round(国籍混血, 2))}] '
-                else:
-                    nationality = nationality_1_opt + ' ' if nationality_1_opt != '-' else nationality_2_opt + ' '
+
+            if nationality_1_opt and nationality_2_opt and nationality_1_opt != '-' and nationality_2_opt != '-':
+                nationality = f'[{nationality_1_opt}:{nationality_2_opt}:{str(round(国籍混血, 2))}] '
+            elif nationality_1_opt and nationality_1_opt != '-':
+                nationality = nationality_1_opt + ' '
+            elif nationality_2_opt and nationality_2_opt != '-':
+                nationality = nationality_2_opt+ ' '
 
             if androgynous_opt + ugly_opt + nationality + gender_opt + age_opt != '':
                 t = f'({androgynous_opt}{ugly_opt}{nationality}{gender_opt}{age_opt}:1.15)'
