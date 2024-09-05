@@ -22,7 +22,7 @@ class ColoredFormatter(logging.Formatter):
 
 
 # Create a new logger
-logger = logging.getLogger("[PortraitMasterCN]")
+logger = logging.getLogger("PortraitMasterCN")
 logger.propagate = False
 
 # Add handler if we don't have one.
